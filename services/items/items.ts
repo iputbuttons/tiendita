@@ -1,8 +1,8 @@
 import { contentful } from '@/configs/contentful'
-import { Item } from './items.types'
+import { DTItem, DTItemMutated } from './items.types'
 
-const getAll = async () => {
-  const { items } = await contentful.getEntries<Item>({
+const getAll = async (): Promise<Array<DTItemMutated>> => {
+  const { items } = await contentful.getEntries<DTItem>({
     content_type: 'item',
   })
   return items.map(({ fields }) => ({

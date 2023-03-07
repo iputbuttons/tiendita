@@ -1,10 +1,10 @@
-import { Card as NextCard, Button, Text } from '@nextui-org/react'
+import { Card as NextCard, Button } from '@nextui-org/react'
 import { FC } from 'react'
 import { Wahstapp } from '../icons/whatsapp'
 import styles from './card.module.scss'
-import { TCard } from './card.types'
+import { FCCard } from './card.types'
 
-export const Card: FC<TCard> = ({
+export const Card: FC<FCCard> = ({
   category,
   description,
   image,

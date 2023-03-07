@@ -1,4 +1,9 @@
-export interface Item {
+export type DTItemMutated = Omit<DTItem, 'category' | 'image'> & {
+  category: string
+  image: string
+}
+
+export type DTItem = {
   title: string
   description: string
   price: number
@@ -6,17 +11,17 @@ export interface Item {
   image: Image
 }
 
-interface Category {
+type Category = {
   metadata: Metadata2
   sys: Sys5
   fields: Fields2
 }
 
-interface Metadata2 {
+type Metadata2 = {
   tags: any[]
 }
 
-interface Sys5 {
+type Sys5 = {
   space: Space2
   id: string
   type: string
@@ -28,51 +33,51 @@ interface Sys5 {
   locale: string
 }
 
-interface Space2 {
+type Space2 = {
   sys: Sys6
 }
 
-interface Sys6 {
+type Sys6 = {
   type: string
   linkType: string
   id: string
 }
 
-interface Environment2 {
+type Environment2 = {
   sys: Sys7
 }
 
-interface Sys7 {
+type Sys7 = {
   id: string
   type: string
   linkType: string
 }
 
-interface ContentType2 {
+type ContentType2 = {
   sys: Sys8
 }
 
-interface Sys8 {
+type Sys8 = {
   type: string
   linkType: string
   id: string
 }
 
-interface Fields2 {
+type Fields2 = {
   name: string
 }
 
-interface Image {
+type Image = {
   metadata: Metadata3
   sys: Sys9
   fields: Fields3
 }
 
-interface Metadata3 {
+type Metadata3 = {
   tags: any[]
 }
 
-interface Sys9 {
+type Sys9 = {
   space: Space3
   id: string
   type: string
@@ -83,45 +88,45 @@ interface Sys9 {
   locale: string
 }
 
-interface Space3 {
+type Space3 = {
   sys: Sys10
 }
 
-interface Sys10 {
+type Sys10 = {
   type: string
   linkType: string
   id: string
 }
 
-interface Environment3 {
+type Environment3 = {
   sys: Sys11
 }
 
-interface Sys11 {
+type Sys11 = {
   id: string
   type: string
   linkType: string
 }
 
-interface Fields3 {
+type Fields3 = {
   title: string
   description: string
   file: File
 }
 
-interface File {
+type File = {
   url: string
   details: Details
   fileName: string
   contentType: string
 }
 
-interface Details {
+type Details = {
   size: number
   image: Image2
 }
 
-interface Image2 {
+type Image2 = {
   width: number
   height: number
 }

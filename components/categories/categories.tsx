@@ -1,8 +1,8 @@
 import { Dropdown } from '@nextui-org/react'
 import { FC } from 'react'
-import { TCategories } from './categories.types'
+import { CTCategories } from './categories.types'
 
-export const Categories: FC<TCategories> = ({
+export const Categories: FC<CTCategories> = ({
   data,
   defaultValue,
   value,

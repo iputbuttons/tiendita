@@ -1,8 +1,8 @@
 import { contentful } from '@/configs/contentful'
-import { Category } from './categories.types'
+import { DTCategory } from './categories.types'
 
-const getAll = async () => {
-  const { items } = await contentful.getEntries<Category>({
+const getAll = async (): Promise<Array<DTCategory['name']>> => {
+  const { items } = await contentful.getEntries<DTCategory>({
     content_type: 'category',
   })
   return items.map(({ fields }) => fields.name)
