@@ -1,19 +1,19 @@
 import styles from '@/styles/index.module.scss'
 import { Card } from '@/components/card/card'
 import { Key, useEffect, useState } from 'react'
-import { Head } from '@/components/head/head'
 import Image from 'next/image'
 import { Categories } from '@/components/categories/categories'
-import { TCard } from '@/components/card/card.types'
+import { FCCard } from '@/components/card/card.types'
 import { services } from '@/services'
 import { Avatar, Divider } from '@nextui-org/react'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import { Page } from '@/components/page/page'
 
 const Home = ({
   categories,
   initialItems,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const [items, setItems] = useState<Array<TCard>>(initialItems)
+  const [items, setItems] = useState<Array<FCCard>>(initialItems)
   const [selectedCategory, setSelectedCategory] = useState<Key>(
     'Todos los articulos'
   )
@@ -24,53 +24,59 @@ const Home = ({
     const filteredItems =
       selectedCategory !== 'Todos los articulos'
         ? initialItems.filter(
-            (item: TCard) => item.category === selectedCategory
+            (item: FCCard) => item.category === selectedCategory
           )
         : initialItems
     setItems(filteredItems)
   }, [initialItems, selectedCategory])
 
   return (
-    <>
-      <Head />
-      <main className={styles.main}>
-        <header className={styles.header}>
-          <span className={styles.top}>
-            <span className={styles.logo}>
-              <Image
-                alt='Logo'
-                className={styles.isotype}
-                height={24}
-                src='/isotype.svg'
-                width={24}
-              />
-              <h1 className={styles.name}>Tiendita</h1>
-            </span>
-            <Categories
-              data={categories}
-              defaultValue='Todos los articulos'
-              onCategory={handleCategory}
-              value={selectedCategory}
+    <Page
+      head={{
+        description: 'Coco agradece tu compra 🇪🇸🫶🏼',
+        openGraph: {
+          picture: '',
+          link: 'https://tiendita.franncode.com/',
+        },
+        title: 'Tiendita',
+      }}
+    >
+      <header className={styles.header}>
+        <span className={styles.top}>
+          <span className={styles.logo}>
+            <Image
+              alt='Logo'
+              className={styles.isotype}
+              height={24}
+              src='/isotype.svg'
+              width={24}
             />
+            <h1 className={styles.name}>Tiendita</h1>
           </span>
-        </header>
-        <section className={styles.items}>
-          {items.map((item) => (
-            <Card {...item} key={item.title} />
-          ))}
-        </section>
-        <Divider />
-        <footer className={styles.coco}>
-          <Avatar
-            className={styles.photo}
-            color='primary'
-            size='lg'
-            src='/coco.jpg'
+          <Categories
+            data={categories}
+            defaultValue='Todos los articulos'
+            onCategory={handleCategory}
+            value={selectedCategory}
           />
-          <p>Coco agradece tu compra 🇪🇸🫶🏼</p>
-        </footer>
-      </main>
-    </>
+        </span>
+      </header>
+      <section className={styles.items}>
+        {items.map((item) => (
+          <Card {...item} key={item.title} />
+        ))}
+      </section>
+      <Divider />
+      <footer className={styles.coco}>
+        <Avatar
+          className={styles.photo}
+          color='primary'
+          size='lg'
+          src='/coco.jpg'
+        />
+        <p>Coco agradece tu compra 🇪🇸🫶🏼</p>
+      </footer>
+    </Page>
   )
 }
 
