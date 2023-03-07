@@ -38,7 +38,6 @@ const Home = ({
           picture: '',
           link: 'https://tiendita.franncode.com/',
         },
-        title: 'Tiendita',
       }}
     >
       <header className={styles.header}>
