@@ -68,12 +68,7 @@ const Home = ({
       </section>
       <Divider />
       <footer className={styles.coco}>
-        <Avatar
-          className={styles.photo}
-          color='primary'
-          size='lg'
-          src='/coco.jpg'
-        />
+        <Avatar color='primary' size='lg' src='/coco.jpg' />
         <p>Coco agradece tu compra 🇪🇸🫶🏼</p>
       </footer>
     </Page>
