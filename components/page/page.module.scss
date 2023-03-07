@@ -1,0 +1,11 @@
+.page {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: flex-start;
+  margin: 0 auto;
+  max-width: 76rem;
+  min-height: 100vh;
+  padding: 1rem;
+}
