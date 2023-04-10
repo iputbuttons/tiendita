@@ -4,17 +4,18 @@ export type DTItemMutated = Omit<DTItem, 'category' | 'image'> & {
 }
 
 export type DTItem = {
-  title: string
-  description: string
-  price: number
+  buyer: 'cristian' | 'publico'
   category: Category
+  description: string
   image: Image
+  price: number
+  title: string
 }
 
 type Category = {
+  fields: Fields2
   metadata: Metadata2
   sys: Sys5
-  fields: Fields2
 }
 
 type Metadata2 = {
@@ -22,15 +23,15 @@ type Metadata2 = {
 }
 
 type Sys5 = {
-  space: Space2
-  id: string
-  type: string
-  createdAt: string
-  updatedAt: string
-  environment: Environment2
-  revision: number
   contentType: ContentType2
+  createdAt: string
+  environment: Environment2
+  id: string
   locale: string
+  revision: number
+  space: Space2
+  type: string
+  updatedAt: string
 }
 
 type Space2 = {

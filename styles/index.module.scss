@@ -26,6 +26,15 @@
   }
 }
 
+.buyer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1rem;
+  justify-content: center;
+}
+
 .items {
   align-items: flex-start;
   display: flex;
