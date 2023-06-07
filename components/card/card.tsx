@@ -17,17 +17,6 @@ export const Card: FC<FCCard> = ({
     maximumFractionDigits: 0,
   })
 
-  const sellers = [
-    {
-      name: 'Agustina',
-      number: '5492657392766',
-    },
-    {
-      name: 'Francisco',
-      number: '5492664626416',
-    },
-  ]
-
   return (
     <NextCard className={styles.card}>
       <NextCard.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
@@ -58,24 +47,21 @@ export const Card: FC<FCCard> = ({
           <p>{description}</p>
         </div>
         <span className={styles.actions}>
-          {sellers.map(({ name, number }) => (
-            <Button
-              key={number}
-              auto
-              className={styles.whatsapp}
-              color='success'
-              flat
-              icon={<Wahstapp />}
-              rounded
+          <Button
+            auto
+            className={styles.whatsapp}
+            color='success'
+            flat
+            icon={<Wahstapp />}
+            rounded
+          >
+            <a
+              href={`https://wa.me/5492657392766?text=Hola,%20como%20estas%20Agustina?%20Estoy%20interesado%20en%20"${title}"`}
+              target='_blank'
             >
-              <a
-                href={`https://wa.me/${number}?text=Hola,%20como%20estas%20${name}?%20Estoy%20interesado%20en%20"${title}"`}
-                target='_blank'
-              >
-                {name}
-              </a>
-            </Button>
-          ))}
+              Me interesa
+            </a>
+          </Button>
         </span>
       </NextCard.Footer>
     </NextCard>

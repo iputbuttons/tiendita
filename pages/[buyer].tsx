@@ -40,7 +40,7 @@ const Home = ({
   )
   console.log('ARS:', precioFinal)
   console.log('USD:', precioFinal / 390)
-  console.log(initialItems)
+
   return (
     <Page
       head={{
