@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-import { Card as NextCard, Button } from '@nextui-org/react'
+import { Button } from '@nextui-org/react'
 import { FC } from 'react'
 import { Wahstapp } from '../icons/whatsapp'
 import styles from './card.module.scss'
@@ -28,11 +27,9 @@ export const Card: FC<FCCard> = ({
         }}
       />
       <div className={styles.info}>
-        <span className={styles.top}>
-          <h4>{title}</h4>
-          <p>{currencyFormatter(price)}</p>
-        </span>
-        <p>{description}</p>
+        <h4>{title}</h4>
+        <p>{currencyFormatter(price)}</p>
+        <p className={styles.description}>{description}</p>
       </div>
       <Button
         auto
