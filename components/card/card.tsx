@@ -13,7 +13,7 @@ export const Card: FC<FCCard> = ({
 }) => {
   const { format: currencyFormatter } = new Intl.NumberFormat('es-AR', {
     style: 'currency',
-    currency: 'ARS',
+    currency: 'USD',
     maximumFractionDigits: 0,
   })
 
@@ -28,7 +28,7 @@ export const Card: FC<FCCard> = ({
       />
       <div className={styles.info}>
         <h4>{title}</h4>
-        <p>{currencyFormatter(price)}</p>
+        <p>{currencyFormatter(price/390)}</p>
         <p className={styles.description}>{description}</p>
       </div>
       <Button
